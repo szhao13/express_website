@@ -6,6 +6,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var app = express();
 
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+
 // add logging and static middleware to express
 app.use(logger('dev'));
 
