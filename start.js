@@ -1,8 +1,19 @@
-// importing express app we created in app.js
-const app = require('./app');
+require('dotenv').config();
 
-// listen on port 3000 for incoming connections and output message to terminal
-// to indicate server is running
+const mongoose = require('mongoose');
+
+mongoose.connect(process.env.DATABASE, { useNewUrlParser: true });
+mongoose.Promise = global.Promise;
+mongoose.connection
+  .on('connected', () => {
+    console.log(`Mongoose connection open on ${process.env.DATABASE}`);
+  })
+  .on('error', (err) => {
+    console.log(`Connection error: ${err.message}`);
+  });
+
+require('./models/Registration');
+const app = require('./app');
 const server = app.listen(3000, () => {
-	console.log(`Express is running on port ${server.address().port}`);
+  console.log(`Express is running on port ${server.address().port}`);
 });
