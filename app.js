@@ -7,7 +7,7 @@ const app = express();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
-app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist/css'))
+// app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist/css'))
 
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use('/', routes);
