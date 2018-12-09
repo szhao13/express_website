@@ -12,7 +12,6 @@ mongoose.connection
     console.log(`Connection error: ${err.message}`);
   });
 
-
 require('./models/Registration');
 const app = require('./app');
 const server = app.listen(3000, () => {
